@@ -1,10 +1,14 @@
 const express = require('express');
+const routes = require('./routes');
+const bodyParser = require('body-parser');
+
 const app = express();
+
+app.use(bodyParser.urlencoded({ extended: true }));
+
 app.set('view engine', 'jade');
 
-app.get('/', function (req, res) {
-  res.render('index', { title: 'Hey', message: 'Hello there!'});
-});
+app.use('/', routes());
 
 app.use(express.static('public'));
 
