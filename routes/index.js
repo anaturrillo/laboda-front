@@ -18,12 +18,6 @@ module.exports = function () {
 
   });
 
-  router.post('/regalos-disponibles', function (req, res) {
-    const presents = req.body;
-    const presentKeys = Object.keys(presents[0]);
-    res.render('presentList', {presents, presentKeys})
-  });
-
   router.post('/getPwd', function (req, res) {
     const encryptedPwd = prepPwd(req.body.password);
     res.status(200);
